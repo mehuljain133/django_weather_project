@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white 0.5s ease, color 0.5s ease;
+    text-align: center;
+    padding: 1px 50px 50px 50px;
+  }
+
+.darkmode {
+    background-color: black;
+}
+
+  nav {
+    background: aqua;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  nav h1 {
+    margin: 0;
+    padding: 0;
+    line-height: 50px;
+    display: inline-flex;
+    justify-self: center;
+    font-family: 'Bungee Spice', cursive;
+    font-size: 36px;
+  }
+  form {
+    margin: 20px 0;
+  }
+  
+  input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .city-container {
+    border-radius: 5px;
+  }
+
+  .forecast-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-radius: 5px;
+  }
+
+  h2 {
+    text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+               1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+  }
+  
+  .forecast {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin: 10px;
+    width: calc(100% / 5 - 20px);
+    box-sizing: border-box;
+  }
+  
+  @media (max-width: 767px) {
+    .forecast {
+      width: calc(50% - 20px);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .forecast {
+      width: 100%;
+    }
+  }

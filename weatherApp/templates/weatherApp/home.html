@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'switch.css' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{%static '/favicons/apple-touch-icon.png'%}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{%static 'favicons/favicon-32x32.png'%}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{%static 'favicons/favicon-16x16.png'%}">
+    <link rel="manifest" href="{% static 'favicons/site.webmanifest'%}">
+</head>
+
+<body>
+<header>
+    <nav>
+        <h1>Weather App</h1>
+        <!-- Rounded switch -->
+        <div id="switch-div">
+            <label class="switch">
+                <input type="checkbox" id="toggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </nav>
+</header>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="city1" placeholder="City 1">
+        <input type="text" name="city2" placeholder="City 2">
+        <button type="submit">Compare weather</button>
+
+    </form>
+    <div class="comparison-container">
+        {% if weather_data1 %}
+        <div class="city-container" style="background-color: {{bg_color1}};">
+            {% include 'weatherApp/city_weather.html' with weather_data=weather_data1 daily_forecasts=daily_forecast1 %}
+        </div>
+        {% endif %}
+        {% if weather_data2 %}
+        <div class="city-container" style="background-color: {{bg_color2}};">
+            {% include 'weatherApp/city_weather.html' with weather_data=weather_data2 daily_forecasts=daily_forecast2 %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+<script src="{% static 'index.js' %}"></script>
+
+</html>
